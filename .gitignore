@@ -1,0 +1,30 @@
+# 공통
+
+.metadata
+
+bin/
+
+tmp/
+
+*.tmp
+
+*.bak
+
+*.swp
+
+*~.nib
+
+local.properties
+
+.settings/
+
+.loadpath
+
+.recommenders
+
+
+# 커스텀마이징
+
+video/
+
+*.exe

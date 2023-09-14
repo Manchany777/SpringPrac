@@ -17,4 +17,22 @@
 		</property>
 		<property name="qty" value="3" />
 	</bean>
+	
+	<bean id="calcAdd" class="sample02.CalcAdd">
+		<constructor-arg>
+			<value>30</value>
+		</constructor-arg>
+		<constructor-arg>
+			<value>20</value>
+		</constructor-arg>
+	</bean>
+	
+	<bean id="calcMul" class="sample02.CalcMul">
+		<property name="x">
+			<value>53</value>
+		</property>
+		<property name="y">
+			<value>24</value>
+		</property>
+	</bean>
 </beans>

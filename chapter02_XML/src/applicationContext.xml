@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-4.3.xsd">
+
+	<bean id="messageBeanImpl" class="sample01.MessageBeanImpl">
+		<!-- Getter 방식 - 기본 생성자 외의 생성자를 만들 때 설정해줘야함 -->
+		<constructor-arg>
+			<value>사과</value>
+		</constructor-arg>
+		
+		<!-- Setter 방식 - setCost()에서 머리(set)와 꼬리(()) 떼고 적는다 -->
+		<property name="cost">
+			<value>5000</value>
+		</property>
+		<property name="qty" value="3" />
+	</bean>
+</beans>

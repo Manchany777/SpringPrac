@@ -5,7 +5,8 @@
 	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
 		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-4.3.xsd">
 	
-	<!-- sample03 -->
+	<!-- sample03 : XML은 풀쿼리 네임을 써야함 (클래스를 빈으로 생성했기때문에 생성자를 무조건 호출한다.)-->
+	<!-- bean이라고 생성자가 없는 게 아니라 new했을 때처럼 생성자가 존재한다는 얘기 -->
 	<!-- scope : prototype, request, session, singleton -->
 	<bean id="messageBean" class="sample03.MessageBeanKo" scope="prototype"></bean>
 	

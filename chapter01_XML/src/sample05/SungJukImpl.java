@@ -8,31 +8,31 @@ import org.springframework.stereotype.Component;
 public class SungJukImpl implements SungJuk {
 	Scanner scan = new Scanner(System.in);
 	
-	String name;
-	int kor;
-	int eng;
-	int math;
-	int tot;
-	double avg;
+	private String name;
+	private int kor;
+	private int eng;
+	private int math;
+	private int tot;
+	private double avg;
 	
 	public SungJukImpl() {
 		System.out.println();
 		System.out.println("*************");
 		System.out.print("이름 입력 : ");
-		this.name = scan.next();
+		name = scan.next();
 		System.out.print("국어 입력 : ");
-		this.kor = scan.nextInt();
+		kor = scan.nextInt();
 		System.out.print("영어 입력 : ");
-		this.eng = scan.nextInt();
+		eng = scan.nextInt();
 		System.out.print("수학 입력 : ");
-		this.math = scan.nextInt();
+		math = scan.nextInt();
 		System.out.println();
 	}
 	
 	@Override
 	public void calc() {
-		this.tot = kor + eng + math;
-		this.avg = (double)(kor + eng + math)/3;
+		tot = kor + eng + math;
+		avg = (double)(kor + eng + math)/3;
 		
 		display();
 	}

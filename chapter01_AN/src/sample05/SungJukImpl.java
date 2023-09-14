@@ -8,12 +8,12 @@ import org.springframework.stereotype.Component;
 public class SungJukImpl implements SungJuk {
 	Scanner scan = new Scanner(System.in);
 	
-	String name;
-	int kor;
-	int eng;
-	int math;
-	int tot;
-	double avg;
+	private String name;
+	private int kor;
+	private int eng;
+	private int math;
+	private int tot;
+	private double avg;
 	
 	public SungJukImpl() {
 		System.out.println();
@@ -31,8 +31,8 @@ public class SungJukImpl implements SungJuk {
 	
 	@Override
 	public void calc() {
-		this.tot = kor + eng + math;
-		this.avg = (double)(kor + eng + math)/3;
+		this.tot = this.kor + this.eng + this.math;
+		this.avg = (double)(tot)/3;
 		
 		display();
 	}

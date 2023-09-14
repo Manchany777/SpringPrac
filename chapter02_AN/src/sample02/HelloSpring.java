@@ -11,7 +11,7 @@ public class HelloSpring {
 		calc1.calculate();
 		
 		ApplicationContext applicationContextMul = new ClassPathXmlApplicationContext("applicationContext.xml");
-		Calc calc2 = applicationContextMul.getBean("calcMul", CalcMul.class);
+		Calc calc2 = (Calc) applicationContextMul.getBean("calcMul");
 		calc2.calculate();
 	}
 }

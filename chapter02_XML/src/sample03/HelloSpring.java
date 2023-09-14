@@ -1,4 +1,4 @@
-package sample02;
+package sample03;
 
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
@@ -7,11 +7,12 @@ public class HelloSpring {
 
 	public static void main(String[] args) {
 		ApplicationContext applicationContextAdd = new ClassPathXmlApplicationContext("applicationContext.xml");
-		Calc calc1 = applicationContextAdd.getBean("calcAdd", CalcAdd.class);
-		calc1.calculate();
+		SungJuk sungJuk = applicationContextAdd.getBean("sungJukImpl", SungJuk.class);
+		sungJuk.calcTot();
+		sungJuk.calcAvg();
+		sungJuk.display();
 		
-		ApplicationContext applicationContextMul = new ClassPathXmlApplicationContext("applicationContext.xml");
-		Calc calc2 = applicationContextMul.getBean("calcMul", CalcMul.class);
-		calc2.calculate();
+		sungJuk.modify(); // 수정
+		sungJuk.display();
 	}
 }

@@ -4,6 +4,7 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
 import sample01.MessageBeanImpl;
+import sample02.CalcMul;
 
 // 'MessageBeanImpl를 빈으로 생성할 겁니다'라는 어노테이션(@Component)을 썼었다.
 // 하지만 이제 어노테이션이 아니라 자바 파일에서 생성(new)시켜주려는 것이다
@@ -24,6 +25,11 @@ public class SpringConfiguration {
 	@Bean(name="messageBeanImpl") // 자바 문법방식(getMessageBeanImpl)으로 쓰고 싶으면 Bean에 id name을 지정해줘야한다.
 	public MessageBeanImpl getMessageBeanImpl() {
 		return new MessageBeanImpl("사과");
+	}
+	
+	@Bean
+	public CalcMul calcMul() {
+		return new CalcMul();
 	}
 // applicationContext.xml 파일에 <context:component-scan base-package="spring.conf" /> 추가해야 정상동작함
 }

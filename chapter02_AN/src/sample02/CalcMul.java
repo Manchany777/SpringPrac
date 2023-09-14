@@ -9,11 +9,12 @@ import lombok.Setter;
 
 @RequiredArgsConstructor // 기본 생성자 지정
 public class CalcMul implements Calc {
-	
+	@Autowired
 	@NonNull
 	//@Setter
 	private int x;
 	
+	@Autowired
 	@NonNull
 	//@Setter
 	private int y;
@@ -22,11 +23,11 @@ public class CalcMul implements Calc {
 		System.out.println("기본 생성자");
 	}
 
-	@Autowired
+
 	public void setX(@Value("36") int x) {
 		this.x = x;
 	}
-	@Autowired
+	
 	public void setY(@Value("15") int y) {
 		this.y = y;
 	}

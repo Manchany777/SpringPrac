@@ -2,11 +2,15 @@ package sample03;
 
 import java.util.Scanner;
 
-import lombok.AllArgsConstructor;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
 
-//@AllArgsConstructor // 이거랑 아래 생성자 둘 중 하나만 쓰면 된다.
+@Component // 빈과 빈으로 생성된 애들은 스프링 컨테이너에 의해서 서로 연관관계를 맺게 된다.
 public class SungJukImpl implements SungJuk {
-	private SungJukDTO sungJukDTO = null;
+	// 생성된 빈들중에서 SungJukDTO 찾아서 매핑을 해라
+	// 생성자이건 Setter 메소드이건 상관없이 SungJukDTO 찾아서 매핑을 해라
+	@Autowired
+	private SungJukDTO sungJukDTO = null; // 필드, 초기화
 	
 	public SungJukImpl(SungJukDTO sungJukDTO) {
 		super();

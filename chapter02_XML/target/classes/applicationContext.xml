@@ -47,4 +47,36 @@
 	<bean id="sungJukImpl" class="sample03.SungJukImpl">
 		<constructor-arg ref="sungJukDTO" />
 	</bean> 
+	
+	<!-- sample04 -->
+	<bean id="helloSpring" class="sample04.HelloSpring"></bean>
+	
+	<bean id="sungJukDTO2" class="sample04.SungJukDTO2">
+		<property name="name" >
+			<value>홍길동</value>
+		</property>
+		<property name="kor">
+			<value>56</value>
+		</property>
+		<property name="eng">
+			<value>80</value>
+		</property>
+		<property name="math">
+			<value>75</value>
+		</property>
+	</bean>
+	
+	<bean id="sungJukInput" class="sample04.SungJukInput">
+		<constructor-arg ref="sungJukDTO2" />
+	</bean> 
+	
+	<bean id="sungJukOutput" class="sample04.SungJukOutput">
+		<constructor-arg ref="sungJukDTO2" />
+	</bean> 
+	
+	<bean id="sungJukUpdate" class="sample04.SungJukUpdate">
+		<constructor-arg ref="sungJukDTO2" />
+	</bean> 
+	
+	<bean id="sungJukDelete" class="sample04.SungJukDelete"></bean> 
 </beans>

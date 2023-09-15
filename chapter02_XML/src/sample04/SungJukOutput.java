@@ -1,21 +1,22 @@
 package sample04;
 
+import java.util.ArrayList;
+
 import org.springframework.beans.factory.annotation.Autowired;
 
+import lombok.Setter;
+
 public class SungJukOutput implements SungJuk {
-	private SungJukDTO2 sungJukDTO2 = null;
-	
-	@Autowired
-	public SungJukOutput(SungJukDTO2 sungJukDTO2) {
-		super();
-		this.sungJukDTO2 = sungJukDTO2;
-	}
+	@Setter
+	private ArrayList<SungJukDTO2> list;
 
 	@Override
 	public void execute() {
 		System.out.println();
 		System.out.println("이름	국어	영어	수학	총점	평균");
-		System.out.println(sungJukDTO2);
+		for(SungJukDTO2 sungJukDTO2 : list) {
+			System.out.println(sungJukDTO2);
+		}
 		System.out.println();
 	}
 }

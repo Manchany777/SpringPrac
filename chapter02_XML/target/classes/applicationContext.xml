@@ -19,6 +19,7 @@
 		<property name="qty" value="3" />
 	</bean>
 	
+	
 	<!-- sample02 -->
 	<bean id="calcAdd" class="sample02.CalcAdd">
 		<constructor-arg>
@@ -36,6 +37,7 @@
 		<property name="y" value="24" />
 	</bean>
 	
+	
 	<!-- sample03 -->
 	<bean id="sungJukDTO" class="sample03.SungJukDTO">
 		<property name="name" value="홍길동" />
@@ -48,27 +50,47 @@
 		<constructor-arg ref="sungJukDTO" />
 	</bean> 
 	
+	
 	<!-- sample04 -->
 	<bean id="helloSpring" class="sample04.HelloSpring"></bean>
 	
-	<bean id="sungJukDTO2" class="sample04.SungJukDTO2">
-		<property name="name" value="홍길동" />
-		<property name="kor" value="56" />
-		<property name="eng" value="80" />
-		<property name="math" value="75" />
-	</bean>
+	<bean id="sungJukDTO2" class="sample04.SungJukDTO2"  scope="prototype" />
+
+	<!-- 데이터를 중복없이 넣으려면 prototype으로 줘야하고, 이걸 참조하는 쪽도 prototype으로 지정해줘야 한다. -->
 	
-	<bean id="sungJukInput" class="sample04.SungJukInput" scope="prototype">
+	<bean id="sungJukInput" class="sample04.SungJukInput"  scope="prototype">
 		<property name="sungJukDTO2" ref="sungJukDTO2" />
+		<!-- name="sungJukDTO2"는 SungJukInput에 있는 setSungJukDTO2이고,
+			 ref="sungJukDTO2"는 applicationContext에 있는 bean id이다.   -->
+		<property name="list" ref="arrayList" />
+		<!-- name="list"는 SungJukInput에 있는 setList이고,
+			 ref="arrayList"는 applicationContext에 있는 bean id이다.   -->
 	</bean> 
 	
-	<bean id="sungJukOutput" class="sample04.SungJukOutput" scope="prototype">
-		<constructor-arg ref="sungJukDTO2" />
+	<bean id="sungJukOutput" class="sample04.SungJukOutput">
+		<property name="list" ref="arrayList" />
 	</bean> 
 	
 	<bean id="sungJukUpdate" class="sample04.SungJukUpdate">
-		<constructor-arg ref="sungJukDTO2" />
+		<property name="list" ref="arrayList" />
 	</bean> 
 	
-	<bean id="sungJukDelete" class="sample04.SungJukDelete"></bean> 
+	<bean id="sungJukDelete" class="sample04.SungJukDelete">
+		<property name="list" ref="arrayList" />
+	</bean> 
+	
+	<!-- 전역으로, 싱글톤으로 잡히기 때문에 이 ArrayList를 다같이 쓸 수가 있다. -->
+	<bean id="arrayList" class="java.util.ArrayList" />
+	
+	
+	<!-- sample05 --> 
+	<bean id="messageBeanImpl2" class="sample05.MessageBeanImpl"> <!-- bean의 id는 임의의 값 지정 가능 -->
+		<constructor-arg value="홍길동" /> <!-- 생성자주입 -->
+		<property name="phone" value="010-1234-5678" /> <!-- Setter주입 -->
+		<property name="outputter" ref="fileOutputter" />
+	</bean>
+	<bean id="fileOutputter" class="sample05.FileOutputter">
+		<property name="filePath" value="D:/bitcamp/Spring/" />
+		<property name="fileName" value="result.txt" />
+	</bean>
 </beans>

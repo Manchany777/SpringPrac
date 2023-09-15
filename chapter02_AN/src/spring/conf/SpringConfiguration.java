@@ -1,10 +1,14 @@
 package spring.conf;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
 import sample01.MessageBeanImpl;
 import sample02.CalcMul;
+import sample04.SungJukDTO2;
 
 // 'MessageBeanImpl를 빈으로 생성할 겁니다'라는 어노테이션(@Component)을 썼었다.
 // 하지만 이제 어노테이션이 아니라 자바 파일에서 생성(new)시켜주려는 것이다
@@ -15,6 +19,7 @@ import sample02.CalcMul;
 public class SpringConfiguration {
 	
 	// 빈 생성
+	//sample01
 	/*
 	@Bean // 다른 방식과 달리 스프링은 이 new시킨 bean을 인식을 못하기때문에 따로 @Bean이라고 알려줘야 스프링과 연결이 된다.
 	public MessageBeanImpl messageBeanImpl() { // 메소드명을 함수로 리턴되는 클래스에 대한 빈 아이디로 설정해줘야 함
@@ -27,10 +32,19 @@ public class SpringConfiguration {
 		return new MessageBeanImpl("사과");
 	}
 	
+	//sample02
 	@Bean
 	public CalcMul calcMul() {
 		return new CalcMul();
 	}
+	
+	//sample04
+	@Bean
+	// public ArrayList<SungJukDTO2> arrayList()  // <bean id="arrayList" class="java.util.ArrayList" ></bean> 과 같은 역할
+	public List<SungJukDTO2> arrayList() {  // 저쪽에서 받고자 하는 부모 타입으로 보내도 됨
+		return new ArrayList<SungJukDTO2>(); // 이 함수에서 return하는 ArrayList<SungJukDTO2>();를 bean으로 잡아주세요.
+	}
+	
 // applicationContext.xml 파일에 <context:component-scan base-package="spring.conf" /> 추가해야 정상동작함
 }
 

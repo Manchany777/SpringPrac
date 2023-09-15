@@ -1,8 +1,11 @@
 package sample04;
 
+import org.springframework.beans.factory.annotation.Autowired;
+
 public class SungJukOutput implements SungJuk {
-	private SungJukDTO2 sungJukDTO2;
+	private SungJukDTO2 sungJukDTO2 = null;
 	
+	@Autowired
 	public SungJukOutput(SungJukDTO2 sungJukDTO2) {
 		super();
 		this.sungJukDTO2 = sungJukDTO2;

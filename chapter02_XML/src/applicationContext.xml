@@ -52,25 +52,17 @@
 	<bean id="helloSpring" class="sample04.HelloSpring"></bean>
 	
 	<bean id="sungJukDTO2" class="sample04.SungJukDTO2">
-		<property name="name" >
-			<value>홍길동</value>
-		</property>
-		<property name="kor">
-			<value>56</value>
-		</property>
-		<property name="eng">
-			<value>80</value>
-		</property>
-		<property name="math">
-			<value>75</value>
-		</property>
+		<property name="name" value="홍길동" />
+		<property name="kor" value="56" />
+		<property name="eng" value="80" />
+		<property name="math" value="75" />
 	</bean>
 	
-	<bean id="sungJukInput" class="sample04.SungJukInput">
-		<constructor-arg ref="sungJukDTO2" />
+	<bean id="sungJukInput" class="sample04.SungJukInput" scope="prototype">
+		<property name="sungJukDTO2" ref="sungJukDTO2" />
 	</bean> 
 	
-	<bean id="sungJukOutput" class="sample04.SungJukOutput">
+	<bean id="sungJukOutput" class="sample04.SungJukOutput" scope="prototype">
 		<constructor-arg ref="sungJukDTO2" />
 	</bean> 
 	

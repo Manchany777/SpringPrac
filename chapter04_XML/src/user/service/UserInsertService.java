@@ -33,7 +33,7 @@ public class UserInsertService implements UserService {
 		
 		System.out.println(userDTO);
 		
-		// DB
+		// DB 
 		userDAO.write(userDTO);
 		
 		System.out.println(name + "님의 데이터를 저장하였습니다.");

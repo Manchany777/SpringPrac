@@ -1,6 +1,5 @@
 package sample04;
 
-import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
 import java.util.Scanner;
@@ -27,7 +26,7 @@ public class SungJukDelete implements SungJuk {
 		
 		/* for(SungJukDTO2 sungJukDTO2 : list) (x)
 		   delete는 list를 쓰면 x - 배열의 요소를 delete하면 index가 바뀌면서 for문이 꼬여서 에러가 떨어짐
-		   so, iterator 써야함 */
+		   so, 버퍼라는 공간에 따로 저장해서 삭제할 수 있는 iterator 써야함 */
 		
 		/* it.hasnext() -> 다음요소가 있는지 T or F로 반환
 		   it.next() -> 요소를 꺼내서 버퍼에 보관후 다음 요소로 이동

@@ -45,7 +45,7 @@ public class HelloSpring {
     }
 
     public static void main(String[] args) {
-    	ApplicationContext applicationContext = new ClassPathXmlApplicationContext("spring/applicationContext.xml");
+    	ApplicationContext applicationContext = new ClassPathXmlApplicationContext("applicationContext.xml");
     	HelloSpring helloSpring = (HelloSpring)applicationContext.getBean("helloSpring");
         helloSpring.menu(applicationContext);
         // main 메소드는 부모가 없어서 new가 가능하지만 그 외의 메소드는 부모 클래스가 존재하기때문에 bean으로 잡아야 한다. (menu 메소드 등)

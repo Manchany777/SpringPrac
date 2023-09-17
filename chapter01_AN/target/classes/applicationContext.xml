@@ -7,7 +7,7 @@
 	
 	<!-- sample03 -->
 	<!-- scope : prototype, request, session, singleton -->
-	<!-- <bean id="messageBean" class="sample03.MessageBeanKo" scope="prototype"></bean> -->
+	<!-- <bean id="messageBean" class="sample03.MessageBeanKo" scope="prototype"></bean>과 동일-->
 	<context:component-scan base-package="sample03" />
 	
 	<!-- sample04 -->

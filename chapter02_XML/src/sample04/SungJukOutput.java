@@ -2,8 +2,6 @@ package sample04;
 
 import java.util.ArrayList;
 
-import org.springframework.beans.factory.annotation.Autowired;
-
 import lombok.Setter;
 
 public class SungJukOutput implements SungJuk {

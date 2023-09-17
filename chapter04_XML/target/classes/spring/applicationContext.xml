@@ -11,6 +11,7 @@
 		http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-4.3.xsd">
 	
 	<!-- Connection Pool & DataSource 3가지 방식 -->
+	<!-- 커넥션풀을 이용한 DataSource 설정 -->
 	<!-- 
 	<bean id="dataSource" class="org.apache.commons.dbcp2.BasicDataSource">
 		<property name="driverClassName" value="oracle.jdbc.driver.OracleDriver" />

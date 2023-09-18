@@ -10,12 +10,12 @@ import org.springframework.context.annotation.PropertySource;
 @PropertySource("classpath:spring/db.properties") // (복수형이면 @PropertySources로 사용)
 public class SpringConfiguration {
 	// 3번 방식
-	@Value("${jdbc.driver") // 변수에 Value(초기값) 입력 - 주의) import시 spring로 해야함 lombok 아님
+	@Value("${jdbc.driver}") // 변수에 Value(초기값) 입력 - 주의) import시 spring로 해야함 lombok 아님
 	private String driver;
-	@Value("${jdbc.url")
+	@Value("${jdbc.url}")
 	private String url;
-	private @Value("${jdbc.username") String username;
-	private @Value("${jdbc.password") String password;
+	private @Value("${jdbc.username}") String username;
+	private @Value("${jdbc.password}") String password;
 	
 	@Bean
 	public BasicDataSource dataSource() {  // 메소드()명은 리턴클래스의 아이디명으로 해줘야함(일종의 약속)

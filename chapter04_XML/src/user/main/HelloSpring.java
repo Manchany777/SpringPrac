@@ -44,6 +44,7 @@ public class HelloSpring {
     	ApplicationContext applicationContext = new ClassPathXmlApplicationContext("spring/applicationContext.xml");
     	HelloSpring helloSpring = (HelloSpring)applicationContext.getBean("helloSpring");
         helloSpring.menu(applicationContext);
+        System.out.println("프로그램을 종료합니다.");
 	}
 }
 

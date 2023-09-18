@@ -46,7 +46,9 @@
 		<property name="userDAO" ref="userDAOImpl" /> <!-- 주의!! UserDAO는 인터페이스 -->
 	</bean>
 	
-	<bean id="userSelectService" class="user.service.UserSelectService"></bean>
+	<bean id="userSelectService" class="user.service.UserSelectService">
+		<property name="userDAO" ref="userDAOImpl" />
+	</bean>
 	
 	<bean id="userDTO" class="user.bean.UserDTO"></bean>
 	

@@ -12,49 +12,16 @@
 	
 	<!-- connection Pool 설정을 SpringConfiguration.java라는 자바클래스로 빼놓음 -->
 	
-		  
-	<!-- properties를 사용해 설정 -->
-	<context:property-placeholder location="classpath:spring/db.properties" /> <!-- db.properties의 위치를 알려줌 -->	
-	<bean id="dataSource" class="org.apache.commons.dbcp2.BasicDataSource">
-		<property name="driverClassName" value="${jdbc.driver}" />
-		<property name="url" value="${jdbc.url}" />
-		<property name="username" value="${jdbc.username}" />
-		<property name="password" value="${jdbc.password}" />
-	</bean> 
-
 	
-	<bean id="helloSpring" class="user.main.HelloSpring" />
+	<context:component-scan base-package="user.bean" /> 
+	<context:component-scan base-package="user.dao" />
+	<context:component-scan base-package="user.main" />
+	<context:component-scan base-package="user.service" />
 	
-	<bean id="userInsertService" class="user.service.UserInsertService">
-		<property name="userDTO" ref="userDTO" />
-		<property name="userDAO" ref="userDAOImpl" /> <!-- 주의!! UserDAO는 인터페이스 -->
-	</bean>
+	<context:component-scan base-package="spring" />
+	<context:component-scan base-package="spring.conf" />
 	
-	<bean id="userSelectService" class="user.service.UserSelectService">
-		<property name="userDAO" ref="userDAOImpl" />
-	</bean>
-	
-	<bean id="userDeleteService" class="user.service.UserDeleteService">
-		<property name="userDAO" ref="userDAOImpl" />
-	</bean>
-	
-	<bean id="userUpdateService" class="user.service.UserUpdateService">
-		<property name="userDAO" ref="userDAOImpl" />
-	</bean>
-	
-	<bean id="userDTO" class="user.bean.UserDTO"></bean>
-	
-	<bean id="userDAOImpl" class="user.dao.UserDAOImpl">
-		<!-- <property name="jdbcTemplate" ref="jdbcTemplate"></property>  -->
-		<!-- UserDAOImpl.java Setter의 jdbcTemplate, JdbcTemplate bean의 jdbcTemplate -->
-	<property name="dataSource" ref="dataSource"></property> 
-	<!-- 부모인 JdbcDaoSupport가 가지고 있는 setter-->
-	</bean> 
-	
-	<!-- JdbcDaoSupport 상속했기 때문에 JdbcTemplate를 빈으로 생성할 필요가 없다. -->
-	<!-- JdbcTemplate를 만든 곳에서 만든 규약 : 생성자를 통해서 connection pool값을 제공한다. -->
-	<!-- <bean id="jdbcTemplate" class="org.springframework.jdbc.core.JdbcTemplate">
-		<constructor-arg ref="dataSource"></constructor-arg> 
-	</bean>  -->
-
+	<!-- 위와같이 겹치는 패키지를 아래처럼 와일드카드(*)처리해도 되긴 하지만 
+	 무슨 패키지가 있는지 알기가 어렵기때문에 왠만하면 하지 말자...개발자들 욕나온다. -->
+	<!-- <context:component-scan base-package="user.*" />  -->
 </beans>

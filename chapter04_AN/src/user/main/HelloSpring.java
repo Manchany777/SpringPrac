@@ -4,9 +4,11 @@ import java.util.Scanner;
 
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
+import org.springframework.stereotype.Component;
 
 import user.service.UserService;
 
+@Component
 public class HelloSpring {
 	
 	public void menu(ApplicationContext applicationContext) {
@@ -15,6 +17,7 @@ public class HelloSpring {
         int num;
 
         while (true) {
+        	System.out.println();
             System.out.println("*************");
             System.out.println("1. 입력");
             System.out.println("2. 출력");

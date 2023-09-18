@@ -4,12 +4,15 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Scanner;
 
-import lombok.Setter;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
 import user.bean.UserDTO;
 import user.dao.UserDAO;
 
+@Service
 public class UserUpdateService implements UserService {
-	@Setter
+	@Autowired
 	private UserDAO userDAO;
 	
 	@Override

@@ -2,14 +2,19 @@ package user.service;
 
 import java.util.Scanner;
 
-import lombok.Setter;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
+import org.springframework.stereotype.Service;
+
 import user.bean.UserDTO;
 import user.dao.UserDAO;
 
+//@Component
+@Service // 오로지 일을 하는 집합체임을 명시하는 어노테이션
 public class UserInsertService implements UserService {
-	@Setter
+	@Autowired // 어노테이션(@Component)으로 생성된 빈들 중에서 이 타입(UserDTO)을 찾아서 자동으로 연결해라
 	private UserDTO userDTO;
-	@Setter
+	@Autowired
 	private UserDAO userDAO;
 	
 	//UserDAO userDAO = new UserDAOImpl(); (x)	

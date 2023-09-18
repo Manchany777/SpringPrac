@@ -2,14 +2,18 @@ package user.service;
 
 import java.util.List;
 
-import lombok.Setter;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
 import user.bean.UserDTO;
 import user.dao.UserDAO;
 
+@Service
 public class UserSelectService implements UserService {
 	// UserDAO의 정보를 생성자를 통해 얻어올건지, setter를 통해 얻어올 건지 선택 (여기서는 Setter 선택)
-	@Setter
+	@Autowired
 	private UserDAO userDAO;
+	
 	@Override
 	public void execute() {
 		System.out.println();

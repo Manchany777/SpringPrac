@@ -4,9 +4,11 @@ import java.util.Scanner;
 
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
+import org.springframework.stereotype.Component;
 
 import user.service.UserService;
 
+@Component
 public class HelloSpring {
 	
 	public void menu(ApplicationContext applicationContext) {
@@ -47,3 +49,4 @@ public class HelloSpring {
         System.out.println("프로그램을 종료합니다.");
 	}
 }
+

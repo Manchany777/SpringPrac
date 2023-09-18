@@ -51,11 +51,11 @@
 		<property name="userDAO" ref="userDAOMybatis" />
 	</bean>
 	
-	<bean id="userDeleteService" class="user.service.UserDeleteService">
+	<bean id="userUpdateService" class="user.service.UserUpdateService">
 		<property name="userDAO" ref="userDAOMybatis" />
 	</bean>
 	
-	<bean id="userUpdateService" class="user.service.UserUpdateService">
+	<bean id="userDeleteService" class="user.service.UserDeleteService">
 		<property name="userDAO" ref="userDAOMybatis" />
 	</bean>
 	

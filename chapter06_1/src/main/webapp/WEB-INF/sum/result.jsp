@@ -7,6 +7,8 @@
 <title>Insert title here</title>
 </head>
 <body>
-<h1>${ param.x } + ${ param.y } = ${ param.x + param.y }</h1>
+<%-- <h1>${ param.x } + ${ param.y } = ${ param.x + param.y }</h1> --%>
+
+<h1>${ x } + ${ y } = ${ x + y }</h1>
 </body>
 </html>

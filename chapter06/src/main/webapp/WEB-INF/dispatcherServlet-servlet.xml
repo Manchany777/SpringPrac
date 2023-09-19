@@ -5,5 +5,17 @@
 	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
 		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-4.3.xsd">
 
-
+	<bean id="helloController" class="com.controller.HelloController"></bean>
+	
+	<!-- 뷰리졸버를 jsp로 보낼 것임을 선언 -->
+	<!-- 예전에는 BoardListService.java에서 한 번에 다 지정해놓았던 것을 갈갈이 찢어놓은 것 -->
+	<bean id="viewResolver" class="org.springframework.web.servlet.view.InternalResourceViewResolver">
+		<!-- InternalResourceViewResolver클래스의 setter 메소드 -->
+		<property name="prefix" value="/view/"></property>
+		<property name="suffix" value=".jsp"></property>
+		
+		<!-- 접두사 : <property name="prefix" value="폴더명"></property> -->
+		<!-- 접미사 : <property name="surfix" value="확장자"></property> -->
+		<!-- 파일명은 HelloController.java에서 지정 -->
+	</bean>
 </beans>

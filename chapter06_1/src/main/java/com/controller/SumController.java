@@ -82,7 +82,7 @@ public class SumController {
 	
 	// 5. Map 대신 DTO로 받는 방식
 	// Map과는 달리 객체라서 param이 아닌 Attribute로 받아야함
-	@RequestMapping(value="/result.do")              // session = request.getSession(); 할 필요x
+	@RequestMapping(value="/result.do")
 	public String result(@ModelAttribute SumDTO sumDTO, ModelMap modelMap) {
 		modelMap.put("x", sumDTO.getX());
 		modelMap.put("y", sumDTO.getY());

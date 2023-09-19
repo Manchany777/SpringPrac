@@ -10,7 +10,7 @@
    <!-- 스프링 설정파일의 위치 또는 이름을 변경할 때 /WEB-INF/dispatcherServlet-servlet.xml (for 보안) -->
    <init-param>
    		<param-name>contextConfigLocation</param-name> <!-- contextConfigLocation 키워드 변경x -->
-   		<param-value>/WEB-INF/spring/appServlet/servlet-context.xml</param-value>
+   		<param-value>/WEB-INF/spring/appServlet/servlet-context.xml, /WEB-INF/spring/appServlet/mvc-context.xml</param-value>
    </init-param>
   </servlet>
   
@@ -19,6 +19,18 @@
   	<url-pattern>*.do</url-pattern>
   </servlet-mapping>
   
+  	<filter>
+	    <filter-name>encodingFilter</filter-name>
+	    <filter-class>org.springframework.web.filter.CharacterEncodingFilter</filter-class>
+	    <init-param>
+	        <param-name>encoding</param-name>
+	        <param-value>UTF-8</param-value>
+    </init-param>
+	</filter>
+	<filter-mapping>
+	    <filter-name>encodingFilter</filter-name>
+	    <url-pattern>/*</url-pattern>
+	</filter-mapping>
   
   <welcome-file-list>
     <welcome-file>index.html</welcome-file>

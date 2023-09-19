@@ -15,7 +15,9 @@ import com.bean.SungJukDTO;
 public class SungJukController {
 	
 	//@GetMapping("/sungJuk/input.do")
-	@RequestMapping(value="/sungJuk/input.do", method=RequestMethod.GET) 
+	//@PostMapping(value="/sungJuk/input.do")
+	//@RequestMapping(value="/sungJuk/input.do", method=RequestMethod.GET) 
+	@RequestMapping(value="/sungJuk/input.do", method={RequestMethod.GET, RequestMethod.POST})
 	public String input() {
 		return "/sungJuk/input";
 	}

@@ -7,7 +7,7 @@
 <title>Insert title here</title>
 </head>
 <body>
-<h1>성적 input 테스트</h1>
+<h1>성적 합계와 평균 구하기</h1>
 <!-- 반드시 result.do로 해줘야 한다. (result.jsp로 적으면 안 됨) -->
 <form name="sumForm" method="post" action="/chapter06_1/sungJuk/result.do">
 <table border="1" cellpadding="5" cellspacing="0">

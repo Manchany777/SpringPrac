@@ -23,4 +23,3 @@
  		delete from usertable where id=#{id}
  	</delete>
  </mapper>
- 	

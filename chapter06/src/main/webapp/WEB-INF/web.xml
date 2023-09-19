@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://xmlns.jcp.org/xml/ns/javaee" xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_4_0.xsd" id="WebApp_ID" version="4.0">
+  <display-name>chapter06</display-name>
+  
+  <servlet>
+  	<servlet-name>dispatcherServlet</servlet-name> <!-- web.xml에서만 인식하기에 바깥에서도 인식할 수 있도록 mapping 해줘야 한다. -->
+  	<servlet-class>org.springframework.web.servlet.DispatcherServlet</servlet-class>
+  	<!-- 서블릿 클래스 설정은 동일하지만 스프링이 제공하는 디스패쳐 서블릿을 이용하는 것이 이전과 다르다. -->
+  </servlet>
+  <servlet-mapping> <!-- *.do 주소로 입력시 해당 서블릿으로 자동 매핑하도록 설정 -->
+  	<servlet-name>dispatcherServlet</servlet-name>
+  	<url-pattern>*.do</url-pattern>
+  </servlet-mapping>
+  
+  <welcome-file-list>
+    <welcome-file>index.html</welcome-file>
+    <welcome-file>index.htm</welcome-file>
+    <welcome-file>index.jsp</welcome-file>
+    <welcome-file>default.html</welcome-file>
+    <welcome-file>default.htm</welcome-file>
+    <welcome-file>default.jsp</welcome-file>
+  </welcome-file-list>
+</web-app>

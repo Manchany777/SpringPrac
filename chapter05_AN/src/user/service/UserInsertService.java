@@ -6,16 +6,17 @@ import java.util.Scanner;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
+import org.springframework.stereotype.Service;
 
-import lombok.Setter;
 import user.bean.UserDTO;
 import user.dao.UserDAO;
 
-@Component
+//@Component
+@Service
 public class UserInsertService implements UserService {
 	@Autowired
 	private UserDTO userDTO;
-	@Autowired
+	@Autowired // UserDAO를 상속받은 UserDAOMybatis를 찾아서 자동 연결
 	private UserDAO userDAO;
 	
 	@Override
@@ -45,5 +46,6 @@ public class UserInsertService implements UserService {
 		map.put("pwd", userDTO.getPwd());
 		
 		System.out.println(name + "님의 데이터를 저장하였습니다.");
+		System.out.println();
 		}
 }

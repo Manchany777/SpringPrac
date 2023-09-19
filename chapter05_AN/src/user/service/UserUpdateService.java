@@ -6,12 +6,13 @@ import java.util.Scanner;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
+import org.springframework.stereotype.Service;
 
-import lombok.Setter;
 import user.bean.UserDTO;
 import user.dao.UserDAO;
 
-@Component
+//@Component
+@Service
 public class UserUpdateService implements UserService {
 	@Autowired
 	private UserDAO userDAO;
@@ -47,7 +48,7 @@ public class UserUpdateService implements UserService {
 		userDAO.update(map);
 		
 		System.out.println(id + "님의 데이터를 수정 하였습니다");
-		
+		System.out.println();
 	}
 }
 

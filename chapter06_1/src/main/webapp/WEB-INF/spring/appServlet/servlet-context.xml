@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-4.3.xsd">
+	
+	<!-- dispatcherServlet-servlet.xml가 가지고 있던 설정 -->
+	<bean id="sumController" class="com.controller.SumController"></bean>
+	
+	<!-- 뷰리졸버를 jsp로 보낼 것임을 선언 -->
+	<!-- 예전에는 BoardListService.java에서 한 번에 다 지정해놓았던 것을 갈갈이 찢어놓은 것 -->
+	<bean id="viewResolver" class="org.springframework.web.servlet.view.InternalResourceViewResolver">
+		<!-- InternalResourceViewResolver클래스의 setter 메소드 -->
+		<property name="prefix" value="/WEB-INF"></property> <!-- 여기다 설정하면 서블릿에서 리턴시 매번 /WEB-INF/sum/input라고 안적어도 됨  -->
+		<property name="suffix" value=".jsp"></property>
+	</bean>
+
+</beans>

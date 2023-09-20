@@ -15,7 +15,7 @@ import com.bean.SungJukDTO;
 public class SungJukController {
 	
 	//@GetMapping("/sungJuk/input.do")
-	//@PostMapping(value="/sungJuk/input.do")
+	//@PostMapping(value="/sungJuk/input.do")  -- (x)
 	//@RequestMapping(value="/sungJuk/input.do", method=RequestMethod.GET) 
 	@RequestMapping(value="/sungJuk/input.do", method={RequestMethod.GET, RequestMethod.POST})
 	public String input() {
@@ -29,9 +29,11 @@ public class SungJukController {
 	    int eng = sungJukDTO.getEng();
 	    int math = sungJukDTO.getMath();
 	    int tot = kor + eng + math;
-	    double avg = (double) tot / 3.0;
+	    double avg = (double) tot / 3.;
 	    String avgFormat = String.format("%.3f", avg);
 	    
+	    
+	    // model이면 model.addAttribute
 		modelMap.put("name", sungJukDTO.getName());
 		modelMap.put("kor", kor);
 		modelMap.put("eng", eng);

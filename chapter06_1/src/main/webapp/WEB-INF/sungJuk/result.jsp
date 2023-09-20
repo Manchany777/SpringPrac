@@ -12,6 +12,7 @@
 <table border="1" cellpadding="5" cellspacing="0">
 	<tr>
 		<td colspan="2" align="center"> ${ name }의 성적
+		<%-- $는 메소드도 변수명처럼 사용가능 ${ sungJukDTO.name } --%>
 		</td>
 	</tr>
 	<tr>

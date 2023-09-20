@@ -14,25 +14,25 @@
 	<tr>
 		<th width='45px'>이름 : </th>
 		<td>
-			<input type="text" id="name" name="name" size="7" />
+			<input type="text" name="name" size="7" />
 		</td>
 	</tr>
 	<tr>
 		<th>국어 : </th>
 		<td>
-			<input type="text" id="kor" name="kor" size="7" />
+			<input type="text" name="kor" size="7" />
 		</td>
 	</tr>
 	<tr>
 		<th>영어 : </th>
 		<td>
-			<input type="text" id="eng" name="eng" size="7" />
+			<input type="text" name="eng" size="7" />
 		</td>
 	</tr>
 	<tr>
 		<th>수학 : </th>
 		<td>
-			<input type="text" id="math" name="math" size="7" />
+			<input type="text" name="math" size="7" />
 		</td>
 	</tr>
 	<tr>

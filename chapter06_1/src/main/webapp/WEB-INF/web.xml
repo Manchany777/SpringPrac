@@ -10,7 +10,9 @@
    <!-- 스프링 설정파일의 위치 또는 이름을 변경할 때 /WEB-INF/dispatcherServlet-servlet.xml (for 보안) -->
    <init-param>
    		<param-name>contextConfigLocation</param-name> <!-- contextConfigLocation 키워드 변경x -->
-   		<param-value>/WEB-INF/spring/appServlet/servlet-context.xml, /WEB-INF/spring/appServlet/mvc-context.xml</param-value>
+   		<param-value>/WEB-INF/spring/appServlet/servlet-context.xml 
+   					 /WEB-INF/spring/appServlet/mvc-context.xml
+   		</param-value>
    </init-param>
   </servlet>
   

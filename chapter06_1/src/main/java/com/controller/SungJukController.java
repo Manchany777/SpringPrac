@@ -12,18 +12,19 @@ import org.springframework.web.servlet.ModelAndView;
 import com.bean.SungJukDTO;
 
 @Controller
+@RequestMapping(value="sungJuk") // 중복처리되는 매핑 코드를 전역으로 처리 (슬래시 안써넣어도 자기가 알아서 구분자로 슬래시를 넣어줌)
 public class SungJukController {
 	
 	//@GetMapping("/sungJuk/input.do")
 	//@PostMapping(value="/sungJuk/input.do")  -- (x)
 	//@RequestMapping(value="/sungJuk/input.do", method=RequestMethod.GET) 
-	@RequestMapping(value="/sungJuk/input.do", method={RequestMethod.GET, RequestMethod.POST})
+	@RequestMapping(value="input.do", method={RequestMethod.GET, RequestMethod.POST})
 	public String input() {
 		return "/sungJuk/input";
 	}
 	
 	//@PostMapping("/sungJuk/result.do")
-	@RequestMapping(value="/sungJuk/result.do", method=RequestMethod.POST)
+	@RequestMapping(value="result.do", method=RequestMethod.POST)
 	public String result(@ModelAttribute SungJukDTO sungJukDTO, ModelMap modelMap) {
 		int kor = sungJukDTO.getKor();
 	    int eng = sungJukDTO.getEng();

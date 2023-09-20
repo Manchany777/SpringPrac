@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:mvc="http://www.springframework.org/schema/mvc"
+	xsi:schemaLocation="http://www.springframework.org/schema/mvc http://www.springframework.org/schema/mvc/spring-mvc-4.3.xsd
+		http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-4.3.xsd">
+	
+	<!-- 뷰리졸버를 jsp로 보낼 것임을 선언 -->
+	<!-- 예전에는 BoardListService.java에서 한 번에 다 지정해놓았던 것을 갈갈이 찢어놓은 것 -->
+	<bean id="viewResolver" class="org.springframework.web.servlet.view.InternalResourceViewResolver">
+		<!-- InternalResourceViewResolver클래스의 setter 메소드 -->
+		<property name="prefix" value="/WEB-INF" /> <!-- 여기다 설정하면 서블릿에서 리턴시 매번 /WEB-INF/sum/input라고 안적어도 됨  -->
+		<property name="suffix" value=".jsp" />
+	</bean>
+	
+	<!-- dispatcherServlet-servlet.xml가 가지고 있던 설정 -->
+	<context:component-scan base-package="user.controller" /> <!-- 컴포넌트 방식 -->
+	<!-- <bean id="userController" class="user.controller.UserController"></bean> --> <!-- 이렇게 bean으로 설정해줘도 됨 -->
+	
+	<!-- Spring Web MVC를 하기 위해서 설정해야 하는 값들을 자동으로 추가해준다 -->
+	<mvc:annotation-driven/>
+	<mvc:resources location="/WEB-INF/js/" mapping="/js/**"></mvc:resources>
+	<!-- /js/~~ 뒤에 무엇이 오든 userController로 가지말고 /WEB-INF/js/로 들어가라 -->
+</beans>

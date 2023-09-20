@@ -1,7 +1,11 @@
 package user.service;
 
+import user.bean.UserDTO;
+
 public interface UserService {
 
-	String write(String id);
+	public String isExistId(String id);
+
+	public void write(UserDTO userDTO);
 
 }

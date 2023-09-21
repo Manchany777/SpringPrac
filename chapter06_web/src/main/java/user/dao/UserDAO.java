@@ -13,7 +13,9 @@ public interface UserDAO {
 
 	//public List<UserDTO> getUserList(int startNum, int endNum);
 
-	List<UserDTO> getUserList(Map<String, Integer> map);
+	public List<UserDTO> getUserList(Map<String, Integer> map);
 
 	public int getTotalA();
+
+	public UserDTO getUser(String id);
 }

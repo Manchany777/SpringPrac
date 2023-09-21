@@ -97,4 +97,9 @@ public class UserServiceImpl implements UserService {
 		return map2;
 	}
 
+	@Override
+	public UserDTO getUser(String id) {
+		// DB
+		return userDAO.getUser(id);
+	}
 }

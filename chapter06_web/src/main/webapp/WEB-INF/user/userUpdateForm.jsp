@@ -12,7 +12,7 @@ table {
 th, td {
 	padding: 8px;
 }
-#writeForm div {
+#userUpdateForm div {
 	color: red;
 	font-size: 8pt;
 	font-weight: bold;
@@ -35,8 +35,7 @@ th, td {
 	<tr>
 		<th>아이디 입력 : </th>
 		<td>
-			<input type="text" name="id" id="id" size="12" disabled />
-			<div id="idDiv"></div>
+			<input type="text" name="id" id="id" size="12" value="${id}" readonly />
 		</td>
 	</tr>
 	<tr>
@@ -48,7 +47,7 @@ th, td {
 	</tr>
 	<tr>
 		<td colspan="2" align="center">
-			<input type="button" value="입력" id="writeBtn"/>
+			<input type="button" value="수정" id="updateBtn"/>
 			<input type="reset" value="취소"/>
 		</td>
 	</tr>

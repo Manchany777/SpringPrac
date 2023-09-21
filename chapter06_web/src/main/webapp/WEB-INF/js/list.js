@@ -15,15 +15,13 @@ $(function(){
 				$('<tr/>').append($('<td/>', { 	  //  웹화면에 출력
 					align: 'center',
 					text : items.name
-				})).append($('<td/>', {
-					align: 'center',
+				})).append($('<td/>',{
+				}).append($('<a/>', { 
+					href:'#', 
 					text : items.id,
-					class: 'subjectA',
-					click: function() {
-			        // 클릭 이벤트 핸들러
-			        window.location.href = "/chapter06_web/user/userUpdateForm"; // 페이지 이동
-			   		}
-				})).append($('<td/>', {
+					class: 'subjectA'
+					}))
+				).append($('<td/>', {
 					align: 'center',
 					text : items.pwd
 				})).appendTo($('#userListTable'));
@@ -31,6 +29,15 @@ $(function(){
 			
 			//페이징 처리
 			$('#userPagingDiv').html(data.userPaging.pagingHTML);
+			
+			// 아이디를 클릭했을 때
+			$('.subjectA').click(function(){
+				//alert($(this).text()); // 모든 subjectA 속성 중 내가 클릭한 subjectA의 값만 보여줌
+				//alert($(this).parent().prev().prop('tagName'));     // name태그의 태그 종류 출력
+				alert('이름 = ' + $(this).parent().prev().text()); // name값 출력
+				
+				location.href='/chapter06_web/user/userUpdateForm?id=' + $(this).text(); // 해당 주소로 넘겨받은 파라미터 값 출력
+			});
 		},
 		error: function(e){
 			console.log(e);

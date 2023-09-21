@@ -13,4 +13,6 @@ public interface UserService {
 	public void write(UserDTO userDTO);
 
 	public Map<String, Object> getUserList(String pg);
+
+	public UserDTO getUser(String id);
 }

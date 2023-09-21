@@ -29,4 +29,10 @@ public class UserDAOMybatis implements UserDAO {
 	public List<UserDTO> getUserList(Map<String, Integer> map) {
 		return sqlSession.selectList("userSQL.getUserList", map);
 	}
+
+	@Override
+	public int getTotalA() {
+		
+		return 0;
+	}
 }

@@ -4,12 +4,15 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+import javax.servlet.http.HttpServletRequest;
+
 import org.json.JSONArray;
 import org.json.JSONObject;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import user.bean.UserDTO;
+import user.bean.UserPaging;
 import user.dao.UserDAO;
 
 @Service // @Component보단 이렇게 서비스하는 클래스라는 걸 명시적으로 지정하는 게 낫다
@@ -46,7 +49,7 @@ public class UserServiceImpl implements UserService {
 		map.put("endNum", endNum);
 		
 		// DB
-		// userDAO.getUserList(startNum, endNum); (x) - 이렇게 안 됨
+			// userDAO.getUserList(startNum, endNum); (x) - 이렇게 안 됨
 		List<UserDTO> list = userDAO.getUserList(map);
 		// DB에서 받아온걸 list로 담아오도록 설정
 		System.out.println(list); // 콘솔창에 list값 제대로 출력되는지 확인
@@ -72,7 +75,21 @@ public class UserServiceImpl implements UserService {
 		// {"list":[{"name":"최병권","id":"choi","pwd":"1111"},{~~},{~~},...]}
 		*/
 		
-		// 페이지 처리
+		// 페이징 처리
+		int totalA = userDAO.getTotalA(); // 총 글수
+
+		UserPaging userPaging = new UserPaging(); // 하나씩 꺼내오기
+		userPaging.setCurrentPage(Integer.parseInt(pg));;
+		userPaging.setPageBlock(3);
+		userPaging.setPageSize(5);
+		userPaging.setTotalA(totalA);
+
+		userPaging.makePagingHTML(); // 메소드 호출
+		
+		// 응답
+		request.setAttribute("pg", pg);
+		request.setAttribute("list", list);
+		request.setAttribute("userPaging", userPaging);
 		
 		return list;
 	}

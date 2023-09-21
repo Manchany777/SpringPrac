@@ -26,8 +26,15 @@ th, td {
 	<!-- 동적 처리 -->
 	
 </table>
+<div style="width: 900px; text-align:center;">${ userPaging.pagingHTML }</div>
 
 <script type="text/javascript" src="http://code.jquery.com/jquery-3.7.0.min.js"></script>
 <script type="text/javascript" src="../js/list.js"></script>
+<script>
+function userPaging(pg) {
+	// BoardPaging에서 호출할 함수를 만듦
+	location.href = "/chapter06_web/user/UserList?pg=" + pg;
+}
+</script>
 </body>
 </html>

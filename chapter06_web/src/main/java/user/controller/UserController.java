@@ -1,7 +1,11 @@
 package user.controller;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -39,5 +43,20 @@ public class UserController {
 	@ResponseBody // 이거 안붙여주면 view로 뿌려줄 jsp 찾음
 	public void write(@ModelAttribute UserDTO userDTO) { // 리턴값이 없을 뿐이지 보내는 내용은 객체이다.
 		userService.write(userDTO);
+	}
+	
+	@GetMapping(value="list") 		// page값 아무것도 안떠도 된다. 단, 없을 땐 기본페이지는 1page를 보여준다.
+									// index.jsp에 <a href="/chapter06_web/user/list?pg=1">라고 안적어도 되도록
+	public String list(@RequestParam(required = false, defaultValue = "1") String pg, Model  model) {
+		
+		model.addAttribute("pg", pg);
+		
+		return "/user/list";
+	}
+	
+	@PostMapping(value="getUserList")
+	@ResponseBody
+	public List<UserDTO> getUserList(@RequestParam String pg) {
+		return userService.getUserList(pg);
 	}
 }

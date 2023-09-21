@@ -10,7 +10,7 @@
 <h3>*** 메인화면 ***</h3>
 <h4>
 	<p><a href="/chapter06_web/user/writeForm">입력</a></p>
-	<p><a href="/chapter06_web/user/resultForm">출력</a></p>
+	<p><a href="/chapter06_web/user/list">출력</a></p>
 	<p><a href="/chapter06_web/user/modifyForm">수정</a></p>
 	<p><a href="/chapter06_web/user/deleteForm">삭제</a></p>
 </h4>

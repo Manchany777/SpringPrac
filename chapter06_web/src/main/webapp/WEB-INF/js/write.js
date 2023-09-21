@@ -22,6 +22,7 @@ $(function(){
 				data: $('#writeForm').serialize(), // #writeForm안에 있는 모든 데이터(name,id,pwd)를 가지고 감
 				success: function(){
 					alert('회원가입이 완료되었습니다');
+					location.href = '/chapter06_web/user/list';
 				},
 				error: function(e){
 					console.log(e);

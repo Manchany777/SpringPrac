@@ -16,7 +16,7 @@ th, td {
 </head>
 <body>
 <input type="text" id="pg" value="${ pg }">
-<table border="1" frame="hsides" rules="rows">
+<table border="1" frame="hsides" rules="rows" id="userListTable">
 	<tr>
 		<th width="200">이름</th>
 		<th width="200">아이디</th>

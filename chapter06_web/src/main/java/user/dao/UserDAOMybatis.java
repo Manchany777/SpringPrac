@@ -32,7 +32,6 @@ public class UserDAOMybatis implements UserDAO {
 
 	@Override
 	public int getTotalA() {
-		
-		return 0;
+		return sqlSession.selectOne("userSQL.getTotalA");
 	}
 }

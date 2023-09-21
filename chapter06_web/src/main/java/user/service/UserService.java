@@ -1,8 +1,10 @@
 package user.service;
 
 import java.util.List;
+import java.util.Map;
 
 import user.bean.UserDTO;
+import user.bean.UserPaging;
 
 public interface UserService {
 
@@ -10,6 +12,5 @@ public interface UserService {
 
 	public void write(UserDTO userDTO);
 
-	public List<UserDTO> getUserList(String pg);
-
+	public Map<String, Object> getUserList(String pg);
 }

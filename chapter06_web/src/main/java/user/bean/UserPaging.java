@@ -1,15 +1,18 @@
 package user.bean;
 
+import org.springframework.stereotype.Component;
+
 import lombok.Getter;
 import lombok.Setter;
 
+@Component // 빈으로 생성 (UserServiceImpl에서 Autowired하기 위해)
 @Getter
 @Setter
 public class UserPaging {
 	// 페이징 처리를 위한 변수들
 	private int currentPage; // 현재페이지
 	private int pageBlock;	 // [이전][1][2][3][다음] -> 일때 pageBlock은 3
-	private int pageSize; 	 // 1페이지당 5개씩
+	private int pageSize; 	 // 1페이지당 3개씩
 	private int totalA;  	 // 총글수
 	private StringBuffer pagingHTML; // 페이징 처리를 입력받을 변수
 	

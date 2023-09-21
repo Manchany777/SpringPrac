@@ -19,6 +19,8 @@ import user.dao.UserDAO;
 public class UserServiceImpl implements UserService {
 	@Autowired // UserDAO와 의존관계 형성
 	private UserDAO userDAO;
+	@Autowired
+	private UserPaging  userPaging;
 	
 	@Override
 	public String isExistId(String id) {
@@ -38,7 +40,7 @@ public class UserServiceImpl implements UserService {
 	}
 
 	@Override
-	public List<UserDTO> getUserList(String pg) {
+	public Map<String, Object> getUserList(String pg) {
 		// 1페이지당 3개씩
 		int endNum = Integer.parseInt(pg)*3;
 		int startNum = endNum-2;
@@ -75,22 +77,24 @@ public class UserServiceImpl implements UserService {
 		// {"list":[{"name":"최병권","id":"choi","pwd":"1111"},{~~},{~~},...]}
 		*/
 		
+		
 		// 페이징 처리
 		int totalA = userDAO.getTotalA(); // 총 글수
 
 		UserPaging userPaging = new UserPaging(); // 하나씩 꺼내오기
 		userPaging.setCurrentPage(Integer.parseInt(pg));;
 		userPaging.setPageBlock(3);
-		userPaging.setPageSize(5);
+		userPaging.setPageSize(3);
 		userPaging.setTotalA(totalA);
 
 		userPaging.makePagingHTML(); // 메소드 호출
 		
-		// 응답
-		request.setAttribute("pg", pg);
-		request.setAttribute("list", list);
-		request.setAttribute("userPaging", userPaging);
+		Map<String, Object> map2 = new HashMap<String, Object>();
+		map2.put("list", list);
+		map2.put("userPaging", userPaging);
+	
 		
-		return list;
+		return map2;
 	}
+
 }

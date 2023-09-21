@@ -1,6 +1,7 @@
 package user.controller;
 
 import java.util.List;
+import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -14,6 +15,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import user.bean.UserDTO;
+import user.bean.UserPaging;
 import user.service.UserService;
 
 
@@ -56,7 +58,7 @@ public class UserController {
 	
 	@PostMapping(value="getUserList")
 	@ResponseBody
-	public List<UserDTO> getUserList(@RequestParam String pg) {
+	public Map<String, Object> getUserList(@RequestParam String pg) {
 		return userService.getUserList(pg);
 	}
 }

@@ -61,4 +61,10 @@ public class UserController {
 	public Map<String, Object> getUserList(@RequestParam String pg) {
 		return userService.getUserList(pg);
 	}
+	
+	//@GetMapping(value="/user/writeForm")
+	@RequestMapping(value="userUpdateForm", method={RequestMethod.GET, RequestMethod.POST}) // 요청시 부르는 것
+	public String userUpdateForm() {
+		return "/user/userUpdateForm"; // jsp 찾아가자
+	}
 }

@@ -17,7 +17,12 @@ $(function(){
 					text : items.name
 				})).append($('<td/>', {
 					align: 'center',
-					text : items.id
+					text : items.id,
+					class: 'subjectA',
+					click: function() {
+			        // 클릭 이벤트 핸들러
+			        window.location.href = "/chapter06_web/user/userUpdateForm"; // 페이지 이동
+			   		}
 				})).append($('<td/>', {
 					align: 'center',
 					text : items.pwd

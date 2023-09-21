@@ -19,10 +19,11 @@ th, td {
 }
 </style>
 </head>
+</head>
 <body>
-<h1>회원가입 페이지</h1>
+<h1>회원정보 수정 페이지</h1>
 <!-- 반드시 result.do로 해줘야 한다. (result.jsp로 적으면 안 됨) -->
-<form id="writeForm">
+<form id="userUpdateForm">
 <table border="1" cellspacing="0">
 	<tr>
 		<th width='120px'>이름 입력 : </th>
@@ -34,7 +35,7 @@ th, td {
 	<tr>
 		<th>아이디 입력 : </th>
 		<td>
-			<input type="text" name="id" id="id" size="12" />
+			<input type="text" name="id" id="id" size="12" disabled />
 			<div id="idDiv"></div>
 		</td>
 	</tr>
@@ -55,6 +56,6 @@ th, td {
 </form>
 
 <script type="text/javascript" src="http://code.jquery.com/jquery-3.7.0.min.js"></script>
-<script type="text/javascript" src="../js/write.js"></script>
+<script type="text/javascript" src="../js/update.js"></script>
 </body>
 </html>

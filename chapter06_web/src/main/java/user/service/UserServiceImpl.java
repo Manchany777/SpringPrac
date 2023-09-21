@@ -40,13 +40,13 @@ public class UserServiceImpl implements UserService {
 		int endNum = Integer.parseInt(pg)*3;
 		int startNum = endNum-2;
 		
-		// myBatis는 하나씩밖에 못실어가기때문에 map을 ㅗ보내야함
+		// myBatis는 하나씩밖에 못실어가기때문에 map을 보내야함
 		Map<String, Integer> map = new HashMap<String, Integer>();
 		map.put("startNum", startNum);
 		map.put("endNum", endNum);
 		
 		// DB
-		// userDAO.getUserList(startNum, endNum); (x)
+		// userDAO.getUserList(startNum, endNum); (x) - 이렇게 안 됨
 		List<UserDTO> list = userDAO.getUserList(map);
 		// DB에서 받아온걸 list로 담아오도록 설정
 		System.out.println(list); // 콘솔창에 list값 제대로 출력되는지 확인

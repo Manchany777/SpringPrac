@@ -9,6 +9,7 @@ $(function(){
 			
 			$('#name').val(data.name);
 			$('#pwd').val(data.pwd);
+			location.href = '/chapter06_web/user/list';
 		},
 		error: function(e){
 			console.log(e);

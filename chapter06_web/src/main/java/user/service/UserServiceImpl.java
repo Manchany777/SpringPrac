@@ -43,7 +43,7 @@ public class UserServiceImpl implements UserService {
 	public Map<String, Object> getUserList(String pg) {
 		// 1페이지당 3개씩
 		int endNum = Integer.parseInt(pg)*3;
-		int startNum = endNum-2;
+		int startNum = endNum-3; // oracle : endNum-2;
 		
 		// myBatis는 하나씩밖에 못실어가기때문에 map을 보내야함
 		Map<String, Integer> map = new HashMap<String, Integer>();

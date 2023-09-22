@@ -69,8 +69,9 @@ public class UserController {
 	
 	// 회원수정 페이지
 	@GetMapping(value="userUpdateForm") // 요청시 부르는 것
-	public String userUpdateForm(@RequestParam String id, Model model) {
+	public String userUpdateForm(@RequestParam String id, @RequestParam String pg, Model model) {
 		model.addAttribute("id", id); // userUpdateForm으로 id파라미터 값 옮기기 위하여
+		model.addAttribute("pg", pg);
 		
 		return "/user/userUpdateForm"; // jsp 찾아가자
 	}
@@ -81,5 +82,19 @@ public class UserController {
 	@ResponseBody // 이거 안붙여주면 view로 뿌려줄 jsp 찾음
 	public UserDTO getUser(@RequestParam String id) { 
 		return userService.getUser(id); // 한 사람분량의 데이터만 옮겨줌
+	}
+	
+	@PostMapping(value="update")
+	@ResponseBody
+	public void update(@ModelAttribute UserDTO userDTO) { // 리턴값이 없을 뿐이지 보내는 내용은 객체이다.
+		System.out.println("ppp=" + userDTO);
+		userService.update(userDTO);
+	}
+	
+	// 회원정보 삭제
+	@PostMapping(value="delete")
+	@ResponseBody
+	public void delete(@RequestParam String id) { // 리턴값이 없을 뿐이지 보내는 내용은 객체이다.
+		userService.delete(id);
 	}
 }

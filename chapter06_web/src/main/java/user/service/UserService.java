@@ -15,4 +15,8 @@ public interface UserService {
 	public Map<String, Object> getUserList(String pg);
 
 	public UserDTO getUser(String id);
+
+	public void update(UserDTO userDTO);
+
+	public void delete(String id);
 }

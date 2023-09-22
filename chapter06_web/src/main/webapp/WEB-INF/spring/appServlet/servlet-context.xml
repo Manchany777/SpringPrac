@@ -22,6 +22,7 @@
 	<!-- Spring Web MVC를 하기 위해서 설정해야 하는 값들을 자동으로 추가해준다 -->
 	<mvc:annotation-driven/>
 	<mvc:resources location="/WEB-INF/js/" mapping="/js/**" />
+	<mvc:resources location="/WEB-INF/image/" mapping="/image/**" />
 	<!-- /js/~~ 뒤에 무엇이 오든 userController로 가지말고 /WEB-INF/js/로 들어가라 -->
 	
 	<mvc:resources location="/bootstrap/" mapping="/bootstrap/**" />

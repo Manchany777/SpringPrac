@@ -18,4 +18,8 @@ public interface UserDAO {
 	public int getTotalA();
 
 	public UserDTO getUser(String id);
+
+	public void update(UserDTO userDTO);
+
+	public void delete(String id);
 }

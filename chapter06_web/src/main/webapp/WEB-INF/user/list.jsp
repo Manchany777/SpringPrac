@@ -41,8 +41,8 @@ th, td {
 </style>
 </head>
 <body>
-<img alt="망상토끼" src="../image/망상토끼.gif" 
-	onclick="location.href='../index.jsp'" style="cursor: pointer;" width="50" height="50">
+<input type="hidden" id="pg" value="${pg}">
+<a href="/chapter06_web/index.jsp"><img alt="망상토끼" src="/chapter06_web/image/망상토끼.gif" style="cursor: pointer;" width="50" height="50"></a>
 <br/>
 <input type="text" id="pg" value="${ pg }">
 <table border="1" frame="hsides" rules="rows" id="userListTable">

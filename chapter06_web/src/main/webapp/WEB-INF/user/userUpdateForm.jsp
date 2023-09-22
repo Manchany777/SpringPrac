@@ -24,6 +24,9 @@ th, td {
 <h1>회원정보 수정 페이지</h1>
 <!-- 반드시 result.do로 해줘야 한다. (result.jsp로 적으면 안 됨) -->
 <form id="userUpdateForm">
+
+<input type="text" id="pg" value="${pg}" >
+
 <table border="1" cellspacing="0">
 	<tr>
 		<th width='120px'>이름 입력 : </th>
@@ -48,7 +51,8 @@ th, td {
 	<tr>
 		<td colspan="2" align="center">
 			<input type="button" value="수정" id="updateBtn"/>
-			<input type="reset" value="취소"/>
+			<input type="button" value="삭제" id="deleteBtn"/>
+			<input type="button" value="취소" id="resetBtn"/>
 		</td>
 	</tr>
 </table>
@@ -56,5 +60,6 @@ th, td {
 
 <script type="text/javascript" src="http://code.jquery.com/jquery-3.7.0.min.js"></script>
 <script type="text/javascript" src="../js/update.js"></script>
+<script type="text/javascript" src="../js/delete.js"></script>
 </body>
 </html>

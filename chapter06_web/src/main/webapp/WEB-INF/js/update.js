@@ -9,10 +9,41 @@ $(function(){
 			
 			$('#name').val(data.name);
 			$('#pwd').val(data.pwd);
-			location.href = '/chapter06_web/user/list';
 		},
 		error: function(e){
 			console.log(e);
 		}
 	});
+});
+
+// 취소버튼
+$('#resetBtn').click(function(){
+	location.reload(); // 위의 ajax코드가 window.onload에 해당하기때문에 위의 코드를 다시 읽어라
+});
+
+// 수정버튼
+$('#updateBtn').click(function(){
+	$('#nameDiv').empty();
+	$('#pwdDiv').empty();
+		
+	if($('#name').val()==''){
+		$('#nameDiv').text('이름을 입력하세요.');
+		$('#name').focus();
+	} else if ($('#pwd').val()=='') {
+		$('#pwdDiv').text('비밀번호를 입력하세요.');
+		$('#pwd').focus();
+	} else {
+		$.ajax({ 	// DB와 연결
+			type: 'post',
+			url: '/chapter06_web/user/update',
+			data: $('#userUpdateForm').serialize(), // #writeForm안에 있는 모든 데이터(name,id,pwd)를 가지고 감
+			success: function(){
+				alert('회원정보 수정 완료');
+				location.href = '/chapter06_web/user/list?pg=' + $('#pg').val();
+			},
+			error: function(e){
+				console.log(e);
+			}
+		});
+	}
 });

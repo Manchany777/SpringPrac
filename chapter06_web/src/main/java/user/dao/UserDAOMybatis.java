@@ -42,7 +42,7 @@ public class UserDAOMybatis implements UserDAO {
 
 	@Override
 	public void update(UserDTO userDTO) {
-		System.out.println(userDTO);
+		System.out.println("DAO단 = " + userDTO);
 		sqlSession.update("userSQL.update", userDTO);
 	}
 

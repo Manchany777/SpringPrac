@@ -87,7 +87,7 @@ public class UserController {
 	@PostMapping(value="update")
 	@ResponseBody
 	public void update(@ModelAttribute UserDTO userDTO) { // 리턴값이 없을 뿐이지 보내는 내용은 객체이다.
-		System.out.println("ppp=" + userDTO);
+		System.out.println("컨트롤 단 =" + userDTO);
 		userService.update(userDTO);
 	}
 	

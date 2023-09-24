@@ -49,7 +49,7 @@ public class UserServiceImpl implements UserService {
 		Map<String, Integer> map = new HashMap<String, Integer>();
 		map.put("startNum", startNum);
 		map.put("endNum", endNum);
-		
+		 
 		// DB
 			// userDAO.getUserList(startNum, endNum); (x) - 이렇게 안 됨
 		List<UserDTO> list = userDAO.getUserList(map);

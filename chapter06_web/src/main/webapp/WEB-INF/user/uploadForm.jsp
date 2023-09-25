@@ -33,12 +33,29 @@ th, td {
 			</td>
 		</tr>
 		
+		<!-- 다중 업로드 할 때는 name 속성의 이름이 같아야 한다. -->
+		<!-- 
 		<tr>
 			<td colspan="2">
 				<input type="file" name="img">
 			</td>
 		</tr>
 		
+		<tr>
+			<td colspan="2">
+				<input type="file" name="img">
+			</td>
+		</tr>
+		 -->
+		 
+		<!-- 한 번에 여러개의 파일을 선택 -->
+		<tr>
+			<td colspan="2">
+				<input type="file" name="img[]" multiple="multiple">
+			</td>
+		</tr>
+		
+		 
 		<tr>
 			<td colspan="2">
 				<input type="submit" value="이미지 업로드">

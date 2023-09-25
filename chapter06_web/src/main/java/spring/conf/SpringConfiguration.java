@@ -6,7 +6,9 @@ import org.apache.commons.dbcp2.BasicDataSource;
 import org.apache.ibatis.session.SqlSessionFactory;
 import org.mybatis.spring.SqlSessionFactoryBean;
 import org.mybatis.spring.SqlSessionTemplate;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
+import org.springframework.context.ApplicationContext;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.PropertySource;
@@ -27,6 +29,9 @@ public class SpringConfiguration {
 	private String url;
 	private @Value("${jdbc.username}") String username;
 	private @Value("${jdbc.password}") String password;
+	
+	@Autowired
+	private ApplicationContext applicationContext;
 	
 	// dataSource 빈 설정
 	@Bean    // 리턴타입        메소드명
@@ -59,7 +64,15 @@ public class SpringConfiguration {
         SqlSessionFactoryBean sqlSessionFactoryBean = new SqlSessionFactoryBean();
         sqlSessionFactoryBean.setDataSource(dataSource());  // <property name="dataSource" ref="dataSource" />의 name값을 다시 setter로 복구
         sqlSessionFactoryBean.setConfigLocation(new ClassPathResource("spring/mybatis-config.xml"));  // 이것도 마찬가지로 다시 setter로 복구
-        sqlSessionFactoryBean.setMapperLocations(new ClassPathResource("user/dao/userMapper.xml"));
+        //sqlSessionFactoryBean.setMapperLocations(new ClassPathResource("user/dao/userMapper.xml"));
+        /*
+        sqlSessionFactoryBean.setMapperLocations(
+        			new ClassPathResource("user/dao/userMapper.xml"),
+        			new ClassPathResource("user/dao/userUploadMapper.xml"));*/
+        
+        sqlSessionFactoryBean.setMapperLocations(applicationContext.getResources("ㅊclasspath:*/dao/*Mapper.xml"));
+        // user가 됐던 userupload가 됐던 끝에가 Mapper로 끝나면 다 잡아와라
+        
         // setConfigLocation메소드에는 "classpath:spring/mybatis-config.xml" 사용 불가능
         // why? String타입으로 받는게 없어서. so, Resource타입으로 받아야 한다.
         // * 참고) ClassPath라는 Resource가 이미 class를 포함하기때문에 경로만 적어주면 된다.

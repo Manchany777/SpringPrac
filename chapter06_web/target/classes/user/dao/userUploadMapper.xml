@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+ "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+  <mapper namespace="userUploadSQL">
+ 	<!-- mybatis-config.xml에서 Alias 잡아줬으니 user.bean.UserDTO 대신 user써도 됨 -->
+ 	<insert id="upload" parameterType="user">
+ 		insert into usertable values(#{name}, #{id}, #{pwd})
+ 	</insert>
+ </mapper>

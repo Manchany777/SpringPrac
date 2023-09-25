@@ -15,6 +15,11 @@
 		<property name="suffix" value=".jsp" />
 	</bean>
 	
+	<!-- 파일 업로드를 위한 멀티파트 리졸버 Bean 생성 -->
+	<bean id="multipartResolver" class="org.springframework.web.multipart.commons.CommonsMultipartResolver">
+		<property name="maxUploadSize" value="5000000" /> <!-- 5MB -->
+	</bean>
+	
 	<!-- dispatcherServlet-servlet.xml가 가지고 있던 설정 -->
 	<context:component-scan base-package="user.controller" /> <!-- 컴포넌트 방식 -->
 	<!-- <bean id="userController" class="user.controller.UserController"></bean> --> <!-- 이렇게 bean으로 설정해줘도 됨 -->

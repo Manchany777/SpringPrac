@@ -5,7 +5,7 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
-<style>
+<style type="text/css">
 table {
 	border-collapse: collapse;
 }

@@ -12,6 +12,7 @@
 	<p><a href="/chapter06_web/user/writeForm">입력</a></p>
 	<p><a href="/chapter06_web/user/list">출력</a></p>
 	<p><a href="/chapter06_web/user/uploadForm">파일업로드</a></p>
+	<p><a href="/chapter06_web/user/uploadForm_AJax">파일업로드_AJax</a></p>
 </h4>
 </body>
 </html>

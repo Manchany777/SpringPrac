@@ -15,7 +15,7 @@ th, td {
 </style>
 </head>
 <body>
-<form method="post" enctype="multipart/form-data" action="/chapter06_web/user/upload">
+<form id="uploadForm">
 	<table border="1">
 		<tr>
 			<th>상품명</th>
@@ -46,18 +46,29 @@ th, td {
 		<!-- 한 번에 여러개의 파일을 선택 -->
 		<tr>
 			<td colspan="2">
-				<input type="file" name="img[]" multiple="multiple">
+				<span id="showImg"></span>
+			
+				<img id="camera" alt="카메라" src="../image/camera.png" width="50" height="50">
+				<input type="file" name="img[]" id="img" multiple="multiple" style="visibility: hidden;">
 			</td>
 		</tr>
 		
 		 
 		<tr>
 			<td colspan="2" align="center">
-				<input type="submit" value="이미지 업로드">
+				<input type="button" value="이미지 업로드" id="uploadBtn">
 				<input type="reset" value="취소">
 			</td>
 		</tr>
 	</table>
 </form>
+
+<script type="text/javascript" src="http://code.jquery.com/jquery-3.7.0.min.js"></script>
+<script type="text/javascript" src="../js/upload_AJax.js"></script>
+<script type="text/javascript">
+$('#camera').click(function(){
+	$('#img').trigger('click'); // 강제 이벤트 발생
+});
+</script>
 </body>
 </html>

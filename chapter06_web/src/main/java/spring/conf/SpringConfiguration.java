@@ -70,7 +70,7 @@ public class SpringConfiguration {
         			new ClassPathResource("user/dao/userMapper.xml"),
         			new ClassPathResource("user/dao/userUploadMapper.xml"));*/
         
-        sqlSessionFactoryBean.setMapperLocations(applicationContext.getResources("ㅊclasspath:*/dao/*Mapper.xml"));
+        sqlSessionFactoryBean.setMapperLocations(applicationContext.getResources("classpath:*/dao/*Mapper.xml"));
         // user가 됐던 userupload가 됐던 끝에가 Mapper로 끝나면 다 잡아와라
         
         // setConfigLocation메소드에는 "classpath:spring/mybatis-config.xml" 사용 불가능

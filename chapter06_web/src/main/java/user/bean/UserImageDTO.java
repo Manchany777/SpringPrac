@@ -7,7 +7,7 @@ import lombok.Setter;
 @Getter
 public class UserImageDTO {
 	private int seq;
-	private String imagename;
+	private String imageName;
 	private String imageContent;
 	private String image1;
 }

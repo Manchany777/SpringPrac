@@ -42,7 +42,7 @@ public class UserControllerUploadAJax {
 			// 실제폴더
 			String filePath = session.getServletContext().getRealPath("/WEB-INF/storage"); // 실제 폴더 경로 찍기 위함
 			System.out.println("실제폴더 = " + filePath);
-			// 실제폴더 = D:\bitcamp\Spring\workspace\.metadata\.plugins\org.eclipse.wst.server.core\tmp0\wtpwebapps\chapter06_web\WEB-INF\storage
+			// (= D:\bitcamp\Spring\workspace\.metadata\.plugins\org.eclipse.wst.server.core\tmp0\wtpwebapps\chapter06_web\WEB-INF\storage)
 			
 			String fileName; // 파일 이름 변수 선언
 			File file; // 파일 객체 생성

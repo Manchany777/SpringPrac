@@ -10,7 +10,7 @@ import org.springframework.transaction.annotation.Transactional;
 import user.bean.UserImageDTO;
 
 @Repository
-@Transactional // commit을 위해
+@Transactional // commit & close를 위해
 public class UserDAOUploadMybatis implements UserDAOUpload {
 	@Autowired
 	private SqlSession sqlSession;

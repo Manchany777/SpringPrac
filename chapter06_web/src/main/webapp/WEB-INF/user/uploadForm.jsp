@@ -20,7 +20,7 @@ th, td {
 </style>
 </head>
 <body>
-<form enctype="multipart/form-data" method="post">
+<form method="post" enctype="multipart/form-data" action="/chapter06_web/user/upload">
 	<table border="1">
 		<tr>
 			<th>상품명</th>

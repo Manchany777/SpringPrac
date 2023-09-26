@@ -7,4 +7,10 @@
  	<insert id="upload" parameterType="user.bean.UserImageDTO">
  		insert into userimage values(SEQ_USERIMAGE.nextval, #{imageName}, #{imageContent}, #{image1})
  	</insert>
+ 	
+ 	<!-- 이미지 출력 -->
+ 	<select id="getUpload_list_AJax" resultType="user.bean.UserImageDTO">
+ 		<!-- 오라클 -->
+	 	select * from userimage order by seq desc
+ 	</select>
  </mapper>

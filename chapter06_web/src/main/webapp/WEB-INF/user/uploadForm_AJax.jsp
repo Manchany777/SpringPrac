@@ -46,9 +46,12 @@ th, td {
 		<!-- 한 번에 여러개의 파일을 선택 -->
 		<tr>
 			<td colspan="2">
-				<!-- 업로드 버튼을 누르기 전에 선택한 이미지가 맞는지 확인하기 위해서 이미지를 보여준다. -->
-				<img id="showImg" width="70" height="70" />
-			
+				<!-- 미리보기 : 업로드 버튼을 누르기 전에 선택한 이미지가 맞는지 확인하기 위해서 이미지를 보여준다. -->
+				<!-- 이미지 1개만 미리보기 -->
+				<!-- <img id="showImg" width="70" height="70" /> -->
+				<!-- 여러 개의 이미지 미리보기 -->
+				<span id="showImgList"></span>
+				
 				<img id="camera" alt="카메라" src="../image/camera.png" width="50" height="50">
 				<input type="file" name="img[]" id="img" multiple="multiple" style="visibility: hidden;">
 			</td>
@@ -72,14 +75,24 @@ th, td {
 $('#camera').click(function(){
 	$('#img').trigger('click'); // 강제 이벤트 발생
 });
-</script>
 
-<!-- 업로드 버튼을 누르기 전에 선택한 이미지가 맞는지 확인하기 위해서 이미지를 보여준다. -->
-<script type="text/javascript">
-$('#img').change(function(){
+
+// 업로드 버튼을 누르기 전에 선택한 이미지가 맞는지 확인하기 위해서 이미지를 보여준다.
+// 이미지 1개만 미리보기
+/*$('#img').change(function(){
 	readURL(this);
+}); */
+
+// 여러 개의 이미지 미리보기
+$('#img').change(function(){
+	$('#showImgList').empty();
+	for(i=0; i<this.files.length; i++) {
+		readURL(this.files[i]);
+	}
 });
 
+// 이미지 1개만 미리보기
+/*
 function readURL(input) {
 	var reader = new FileReader();
 	
@@ -90,7 +103,24 @@ function readURL(input) {
 	}
 	
 	reader.readAsDataURL(input.files[0]);
+}*/
+
+// 여러 개의 이미지 미리보기
+function readURL(file) {
+	var reader = new FileReader();
+	
+	var show; 
+	reader.onload = function(e) {  // 태그 만들어주는 역할
+		var img = document.createElement('img');
+		img.src = e.target.result;
+		img.width = 70;
+		img.height = 70;
+		$('#showImgList').append(img);
+	}
+	
+	reader.readAsDataURL(file);
 }
+
 </script>
 </body>
 </html>

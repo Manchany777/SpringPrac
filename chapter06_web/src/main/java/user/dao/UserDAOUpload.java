@@ -8,4 +8,6 @@ public interface UserDAOUpload {
 
 	public void upload(UserImageDTO userImageDTO, List<String> fileNameList);
 
+	public List<UserImageDTO> getUpload_list_AJax();
+	
 }

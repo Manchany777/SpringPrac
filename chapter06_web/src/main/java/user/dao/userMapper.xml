@@ -12,17 +12,17 @@
  	
  	<!-- 출력 -->
  	<select id="getUserList" parameterType="java.util.Map" resultType="user">
- 		<!-- 오라클
+ 		<!-- 오라클 -->
  	 	<![CDATA[
 	 	 	select * from
 			(select rownum rn, tt.* from
 			(select * from usertable) tt
 			) where rn>=#{startNum} and rn<=#{endNum}
-		]]> -->
+		]]>
 		
 		<!-- MySQL : select * from usertable id limit 시작위치, 개수; (시작위치는 0부터 시작) -->
-		<!-- select * from usertable id limit 0, 3 -->
-		select * from usertable id limit #{startNum}, #{endNum}
+			<!-- select * from usertable id limit 0, 3 -->
+		<!-- select * from usertable id limit #{startNum}, #{endNum} -->
  	</select>
  	
  	<!-- 총글수 -->

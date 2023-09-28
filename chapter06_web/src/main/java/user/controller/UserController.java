@@ -82,7 +82,7 @@ public class UserController {
 	@ResponseBody // 이거 안붙여주면 view로 뿌려줄 jsp 찾음
 	public UserDTO getUser(@RequestParam String id) { 
 		return userService.getUser(id); // 한 사람분량의 데이터만 옮겨줌
-	}
+	} 
 	
 	@PostMapping(value="update")
 	@ResponseBody

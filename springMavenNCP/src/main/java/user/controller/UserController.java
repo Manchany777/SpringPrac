@@ -9,6 +9,7 @@ import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -18,6 +19,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.multipart.MultipartFile;
 
 import user.bean.UserImageDTO;
+import user.dao.UserDAO;
 import user.service.ObjectStorageService;
 import user.service.UserService;
 
@@ -28,6 +30,8 @@ public class UserController {
 	private UserService userService;
 	@Autowired
 	private ObjectStorageService objectStorageService;
+	@Autowired
+	private UserDAO userDAO;
 	
 	private String bucketName = "bitcamp-edu-bucket-112";  // 내가 발급받은 고유한 버킷 이름
 	
@@ -109,5 +113,28 @@ public class UserController {
 	@ResponseBody
 	public List<UserImageDTO> getUploadList() {
 		return userService.getUploadList();
+	}
+	
+	// 이미지 삭제
+	@PostMapping(value="/deleteList", produces = "application/json;charset=UTF-8")
+	@ResponseBody
+	public String deleteList(@RequestParam int seq) {
+		//String imageFileName = userImageDTO.getImageFileName();
+		
+		userService.deleteList(seq);
+		
+		return "해당 이미지가 삭제되었습니다.";
+	}
+	
+	//이미지 수정페이지
+	@GetMapping(value="/updateForm")
+	//@ResponseBody
+	public String updateForm(@RequestParam("seq") int seq, Model model) {
+		
+		UserImageDTO userImageDTO = userService.getImageFileName(seq);
+		model.addAttribute("userImageDTO", userImageDTO);
+		
+		return  "/user/updateForm";
+		//return userService.getImageFileName(seq);
 	}
 }

@@ -18,4 +18,12 @@
     <select id="getUploadList" resultType="user.bean.UserImageDTO">
     	select * from userimage order by seq desc
     </select>
+    
+    <delete id="deleteList" parameterType="int">
+    	delete from userimage where seq = #{seq}
+    </delete>
+    
+    <select id="getImageFileName" parameterType="int" resultType="user.bean.UserImageDTO">
+    	select * from userimage where seq = #{seq}
+    </select>
  </mapper>

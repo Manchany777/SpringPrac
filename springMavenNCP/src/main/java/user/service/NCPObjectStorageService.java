@@ -6,11 +6,13 @@ import java.util.UUID;
 import org.springframework.stereotype.Service;
 import org.springframework.web.multipart.MultipartFile;
 
+import com.amazonaws.SdkClientException;
 import com.amazonaws.auth.AWSStaticCredentialsProvider;
 import com.amazonaws.auth.BasicAWSCredentials;
 import com.amazonaws.client.builder.AwsClientBuilder;
 import com.amazonaws.services.s3.AmazonS3;
 import com.amazonaws.services.s3.AmazonS3ClientBuilder;
+import com.amazonaws.services.s3.model.AmazonS3Exception;
 import com.amazonaws.services.s3.model.CannedAccessControlList;
 import com.amazonaws.services.s3.model.ObjectMetadata;
 import com.amazonaws.services.s3.model.PutObjectRequest;
@@ -58,5 +60,19 @@ public class NCPObjectStorageService implements ObjectStorageService {
 			throw new RuntimeException("파일 업로드 오류", e);
 		}
 	}
+
+	@Override
+	public void deleteList(String bucketName, String imageFileName) {
+		try {
+		    s3.deleteObject(bucketName, imageFileName);
+		    System.out.format("Object %s has been deleted.\n", imageFileName);
+		} catch (AmazonS3Exception e) {
+		    e.printStackTrace();
+		} catch(SdkClientException e) {
+		    e.printStackTrace();
+		}
+		
+	}
+
 
 }

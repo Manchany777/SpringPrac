@@ -14,6 +14,10 @@ import user.dao.UserDAO;
 public class UserServiceImpl implements UserService {
 	@Autowired
 	private UserDAO userDAO;
+	@Autowired
+	private ObjectStorageService objectStorageService;
+	
+	private String bucketName = "bitcamp-edu-bucket-112";
 	
 	@Override
 	public void upload(List<UserImageDTO> userImageList) {
@@ -25,5 +29,27 @@ public class UserServiceImpl implements UserService {
 		return userDAO.getUploadList();
 	}
 
+	@Override
+	public void deleteList(int seq) {
+		String imageFileName = "storage/";
+		imageFileName+=userDAO.getImageFileName(seq);
+		
+		System.out.println("UserServiceImpl : " + imageFileName);
+		objectStorageService.deleteList(bucketName, imageFileName);
+		
+		userDAO.deleteList(seq);
+	}
 
+	@Override
+	public UserImageDTO getImageFileName(int seq) {
+		UserImageDTO userImageDTO = userDAO.getImageFileName(seq);
+		
+		userImageDTO.setSeq(seq);
+		userImageDTO.setImageName(userImageDTO.getImageName());
+		userImageDTO.setImageContent(userImageDTO.getImageContent());
+		userImageDTO.setImageFileName(userImageDTO.getImageFileName());
+		userImageDTO.setImageOriginalName(userImageDTO.getImageOriginalName());
+		
+		return userImageDTO;
+	}
 }

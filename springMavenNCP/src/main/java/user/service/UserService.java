@@ -9,4 +9,8 @@ public interface UserService {
 
 	public List<UserImageDTO> getUploadList();
 
+	public void deleteList(int seq);
+
+	public UserImageDTO getImageFileName(int seq);
+
 }

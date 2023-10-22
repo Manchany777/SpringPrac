@@ -57,6 +57,7 @@ th, td {
 	
 	<div id="resultDiv"></div>
 </form>
+<button onclick="location.href='/springMavenNCP'" value="뒤로가기">뒤로가기</button>
 <script type="text/javascript" src="http://code.jquery.com/jquery-3.7.0.min.js"></script>
 <script type="text/javascript" src="../js/upload.js"></script>
 <script type="text/javascript">

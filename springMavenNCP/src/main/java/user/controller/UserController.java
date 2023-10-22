@@ -40,6 +40,7 @@ public class UserController {
 		return "/user/uploadForm";
 	}
 	
+	// <!-- 수업시간에 코드 시도 실패 -->
 	// MappingJackson2HttpMessageConverter 가 jackson 라이브러리를 이용해
     // 자바 객체를 JSON 문자열로 변환하여 클라이언트로 보낸다.
     // 이 컨버터를 사용하면 굳이 UTF-8 변환을 설정할 필요가 없다.
@@ -136,5 +137,61 @@ public class UserController {
 		
 		return  "/user/updateForm";
 		//return userService.getImageFileName(seq);
+	}
+	
+	@PostMapping(value="/update", produces = "application/json;charset=UTF-8")
+	@ResponseBody
+	public String update(@ModelAttribute UserImageDTO userImageDTO, 
+						 @RequestParam("img") MultipartFile imgFile, 
+						 HttpSession session) {
+		// 실제 폴더
+		String filepath = session.getServletContext().getRealPath("/WEB-INF/storage");
+		System.out.println("실제폴더 = " + filepath);
+		
+		File file;
+		String originalFileName;
+		//String result = ""; // 상품등록 완료 확인
+		String fileName;
+		
+		originalFileName = imgFile.getOriginalFilename();
+		System.out.println(originalFileName);
+		System.out.println("seq 알아보기 " + userImageDTO.getSeq());
+		
+		//삭제
+		String imageFileName = "storage/";
+		imageFileName+=userDAO.getImageFileName(userImageDTO.getSeq());
+		System.out.println("비교 imageFileName : " + imgFile.getOriginalFilename());
+		System.out.println("삭제 imageFileName : " + userDAO.getImageFileName(userImageDTO.getSeq()));
+		objectStorageService.deleteList(bucketName, imageFileName);
+		userDAO.deleteList(userImageDTO.getSeq());
+		
+		
+		//업로드
+		fileName = objectStorageService.uploadFile(bucketName, "storage/", imgFile); 
+		file = new File(filepath, originalFileName);
+		
+		try {
+			imgFile.transferTo(file);
+		} catch (IllegalStateException e) {
+			e.printStackTrace();
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+		System.out.println("업데이트 파일 이름 : " + file);
+		
+		UserImageDTO dto = new UserImageDTO();
+		dto.setSeq(userImageDTO.getSeq()); // 상품번호
+		dto.setImageName(userImageDTO.getImageName()); // 상품명
+		dto.setImageContent(userImageDTO.getImageContent()); // 상품내용
+		//dto.setImageFileName("");		 // UUID - Object에 올라갈 수 있도록 처리애햐함(클라우드에서 이름을 받아올 거라 여기선 공백으로 둔다.)
+		//dto.setImageFileName("noname");  // 현재는 "noname"이 뜨게 바꿈
+		dto.setImageFileName(fileName);  // NCloud에 UUID로 fileName 삽입
+		dto.setImageOriginalName(originalFileName);
+		
+		// DB
+		userService.update(dto);
+		
+		System.out.println("업데이트 DTO 이름 : " + dto.getImageOriginalName());	
+		return "이미지가 수정되었습니다.";
 	}
 }

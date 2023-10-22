@@ -9,5 +9,4 @@ public interface ObjectStorageService {
 	public String uploadFile(String bucketName, String string, MultipartFile img);
 
 	public void deleteList(String bucketName, String imageFileName);
-
 }

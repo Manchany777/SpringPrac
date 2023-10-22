@@ -26,4 +26,10 @@
     <select id="getImageFileName" parameterType="int" resultType="user.bean.UserImageDTO">
     	select * from userimage where seq = #{seq}
     </select>
+    
+    <insert id="update" parameterType="user.bean.UserImageDTO">
+ 		insert into userimage(imageName, imageContent, imageFileName, imageOriginalName) 
+ 		values (#{imageName}, #{imageContent}, #{imageFileName}, #{imageOriginalName})
+ 	</insert>
+
  </mapper>

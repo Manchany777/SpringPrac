@@ -15,4 +15,6 @@ public interface UserDAO {
 	public void deleteList(int seq);
 
 	public UserImageDTO getImageFileName(int seq);
+
+	public void update(UserImageDTO dto);
 }

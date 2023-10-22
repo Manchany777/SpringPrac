@@ -73,6 +73,4 @@ public class NCPObjectStorageService implements ObjectStorageService {
 		}
 		
 	}
-
-
 }
